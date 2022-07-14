@@ -2,17 +2,14 @@ const express = require('express');
 
 const app = express();
 
-const prodArray = ["manzana", "banana"];
+const prodArray = ["manzana", "banana", "mandarina", "leche", "pollo", "zanahoria"];
 
 app.get("/productos", (req,res) => {
-	//obtener del Container los productos
-	
 	res.send(JSON.stringify(prodArray));
-})//(path, callback) -> callback: function(req, res)
+})
 
 app.get("/productoRandom", (req, res) => {
-	const randomProd = prodArray[0]//Container.getItemById(Math.random());
-	
+	const randomProd = prodArray[Math.floor(Math.random() * 7)]
 	res.send(JSON.stringify(randomProd));
 })
 
